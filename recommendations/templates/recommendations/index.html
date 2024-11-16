@@ -1,0 +1,390 @@
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+    <title>PHPJabbers.com | Free Job Agency Website Template</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'recommendations/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'recommendations/css/font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static 'recommendations/css/style.css' %}">
+
+    </head>
+    
+    <body>
+    
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+      <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    
+    
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="{% url 'index' %}" class="logo">Job Agency<em></em></a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li><a href="/" class="active">Home</a></li>  <!-- Home page -->
+                            <li><a href="/jobs/">Jobs</a></li>  <!-- Jobs page -->
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="/about/">About Us</a>  <!-- About page -->
+                                    <a class="dropdown-item" href="/team/">Team</a>  <!-- Team page -->
+                                    <a class="dropdown-item" href="/blog/">Blog</a>  <!-- Blog page -->
+                                    <a class="dropdown-item" href="/testimonials/">Testimonials</a>  <!-- Testimonials page -->
+                                    <a class="dropdown-item" href="/terms/">Terms</a>  <!-- Terms page -->
+                                </div>
+                            </li>
+                            <li><a href="/contact/">Contact</a></li>  <!-- Contact page -->
+    
+                            <!-- ***** Profile Dropdown Start ***** -->
+                            {% if user.is_authenticated %}  <!-- Check if the user is logged in -->
+                            <li class="dropdown profile-dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <img src="{% static 'recommendations/images/profile.png' %}" alt="Profile" class="profile-logo">  <!-- Profile icon -->
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="/profile/">My Profile</a>  <!-- Profile details page -->
+                                    <a class="dropdown-item" href="/settings/">Settings</a>  <!-- Account settings page -->
+                                    <div class="dropdown-divider"></div>
+                                    <form method="POST" action="{% url 'logout' %}">
+                                        {% csrf_token %}
+                                        <button class="dropdown-item" type="submit">Logout</button>  <!-- Logout button -->
+                                    </form>
+                                </div>
+                            </li>
+                            {% else %}
+                            <li><a href="{% url 'login' %}">Login</a></li>  <!-- Show login option if user is not logged in -->
+                            {% endif %}
+                            <!-- ***** Profile Dropdown End ***** -->
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ***** Main Banner Area Start ***** -->
+    <div class="main-banner" id="top">
+        <video autoplay muted loop id="bg-video">
+                <source src="{% static 'recommendations/images/video.mp4' %}" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+
+        <div class="video-overlay header-text">
+            <div class="caption">
+                <h6>Lorem ipsum dolor sit amet</h6>
+                <h2>Find the perfect <em>Job</em></h2>
+                <div class="main-button">
+                    <a href="{% url 'contact' %}">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Main Banner Area End ***** -->
+
+   <!-- ***** Cars Starts ***** -->
+   <section class="section" id="trainers">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    <h2>Featured <em>Jobs</em></h2>
+                    <img src="static/recommendations/images/line-dec.png" alt="">
+                    <p>Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra ipsum dolor, ultricies fermentum massa consequat eu.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="trainer-item">
+                    <div class="image-thumb">
+                        <img src="static/recommendations/images/product-1-720x480.jpg" alt="">
+                    </div>
+                    <div class="down-content">
+                        <span> <sup>$</sup>70 000 </span>
+
+                        <h4>Lorem ipsum dolor sit amet, consectetur</h4>
+
+                        <p>Medical &nbsp;/&nbsp; Health Jobs</p>
+
+                        <ul class="social-icons">
+                            <li><a href="{% url 'jobdetails' %}">+ View More</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="trainer-item">
+                    <div class="image-thumb">
+                        <img src="static/recommendations/images/product-2-720x480.jpg" alt="">
+                    </div>
+                    <div class="down-content">
+                        <span> <sup>$</sup>70 000 </span>
+
+                        <h4>Lorem ipsum dolor sit amet, consectetur</h4>
+
+                        <p>Medical &nbsp;/&nbsp; Health Jobs</p>
+
+                        <ul class="social-icons">
+                            <li><a href="{% url 'jobdetails' %}">+ View More</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="trainer-item">
+                    <div class="image-thumb">
+                        <img src="static/recommendations/images/product-3-720x480.jpg" alt="">
+                    </div>
+                    <div class="down-content">
+                        <span> <sup>$</sup>70 000 </span>
+
+                        <h4>Lorem ipsum dolor sit amet, consectetur</h4>
+
+                        <p>Medical &nbsp;/&nbsp; Health Jobs</p>
+
+                        <ul class="social-icons">
+                            <li><a href="{% url 'jobdetails' %}">+ View More</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <br>
+
+            <div class="main-button text-center">
+                <a href="{% url 'jobs' %}">View Jobs</a>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Cars Ends ***** -->
+
+    <section class="section section-bg" id="schedule" style="background-image: url(static/recommendations/images/about-fullscreen-1-1920x700.jpg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-heading dark-bg">
+                        <h2>Read <em>About Us</em></h2>
+                        <img src="static/recommendations/images/line-dec.png" alt="">
+                        <p>Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra ipsum dolor, ultricies fermentum massa consequat eu.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="cta-content text-center">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore deleniti voluptas enim! Provident consectetur id earum ducimus facilis, aspernatur hic, alias, harum rerum velit voluptas, voluptate enim! Eos, sunt, quidem.</p>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto nulla quo cum officia laboriosam. Amet tempore, aliquid quia eius commodi, doloremque omnis delectus laudantium dolor reiciendis non nulla! Doloremque maxime quo eum in culpa mollitia similique eius doloribus voluptatem facilis! Voluptatibus, eligendi, illum. Distinctio, non!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ***** Blog Start ***** -->
+    <section class="section" id="our-classes">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-heading">
+                        <h2>Read our <em>Blog</em></h2>
+                        <img src="static/recommendations/images/line-dec.png" alt="">
+                        <p>Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra ipsum dolor, ultricies fermentum massa consequat eu.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="tabs">
+              <div class="col-lg-4">
+                <ul>
+                  <li><a href='#tabs-1'>Lorem ipsum dolor sit amet, consectetur adipisicing.</a></li>
+                  <li><a href='#tabs-2'>Aspernatur excepturi magni, placeat rerum nobis magnam libero! Soluta.</a></li>
+                  <li><a href='#tabs-3'>Sunt hic recusandae vitae explicabo quidem laudantium corrupti non adipisci nihil.</a></li>
+                  <div class="main-rounded-button"><a href="{% url 'blog' %}">Read More</a></div>
+
+                </ul>
+              </div>
+              <div class="col-lg-8">
+                <section class='tabs-content'>
+                  <article id='tabs-1'>
+                    <img src="static/recommendations/images/blog-image-1-940x460.jpg" alt="">
+                    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing.</h4>
+
+                    <p><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
+
+                    <p>Phasellus convallis mauris sed elementum vulputate. Donec posuere leo sed dui eleifend hendrerit. Sed suscipit suscipit erat, sed vehicula ligula. Aliquam ut sem fermentum sem tincidunt lacinia gravida aliquam nunc. Morbi quis erat imperdiet, molestie nunc ut, accumsan diam.</p>
+                    <div class="main-button">
+                    <a href="{% url 'blogdetails' %}">Continue Reading</a>
+                    </div>
+                  </article>
+                  <article id='tabs-2'>
+                    <img src="static/recommendations/images/blog-image-2-940x460.jpg" alt="">
+                    <h4>Aspernatur excepturi magni, placeat rerum nobis magnam libero! Soluta.</h4>
+                    <p><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
+                    <p>Integer dapibus, est vel dapibus mattis, sem mauris luctus leo, ac pulvinar quam tortor a velit. Praesent ultrices erat ante, in ultricies augue ultricies faucibus. Nam tellus nibh, ullamcorper at mattis non, rhoncus sed massa. Cras quis pulvinar eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                    <div class="main-button">
+                    <a href="{% url 'blogdetails' %}">Continue Reading</a>
+                    </div>
+                  </article>
+                  <article id='tabs-3'>
+                    <img src="static/recommendations/images/blog-image-3-940x460.jpg" alt="">
+                    <h4>Sunt hic recusandae vitae explicabo quidem laudantium corrupti non adipisci nihil.</h4>
+                    <p><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
+                    <p>Fusce laoreet malesuada rhoncus. Donec ultricies diam tortor, id auctor neque posuere sit amet. Aliquam pharetra, augue vel cursus porta, nisi tortor vulputate sapien, id scelerisque felis magna id felis. Proin neque metus, pellentesque pharetra semper vel, accumsan a neque.</p>
+                    <div class="main-button">
+                    <a href="{% url 'blogdetails' %}">Continue Reading</a>
+                    </div>
+                  </article>
+                </section>
+              </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Blog End ***** -->
+
+    <!-- ***** Call to Action Start ***** -->
+ <!-- ***** Call to Action Start ***** -->
+ <section class="section section-bg" id="call-to-action" style="background-image: url(static/recommendations/images/banner-image-1-1920x500.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="cta-content">
+                    <h2>Send us a <em>message</em></h2>
+                    <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula, sit amet dapibus odio augue eget libero. Morbi tempus mauris a nisi luctus imperdiet.</p>
+                    <div class="main-button">
+                        <a href="{% url 'contact' %}">Contact us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- ***** Call to Action End ***** -->
+
+    <!-- ***** Testimonials Item Start ***** -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-heading">
+                        <h2>Read our <em>Testimonials</em></h2>
+                        <img src="static/recommendations/images/line-dec.png" alt="waves">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem incidunt alias minima tenetur nemo necessitatibus?</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <ul class="features-items">
+                        <li class="feature-item">
+                            <div class="left-icon">
+                                <img src="static/recommendations/images/features-first-icon.png" alt="First One">
+                            </div>
+                            <div class="right-content">
+                                <h4>John Doe</h4>
+                                <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessitatibus repellendus sed deleniti id et!"</em></p>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <div class="left-icon">
+                                <img src="static/recommendations/images/features-first-icon.png" alt="second one">
+                            </div>
+                            <div class="right-content">
+                                <h4>John Doe</h4>
+                                <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessitatibus repellendus sed deleniti id et!"</em></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <ul class="features-items">
+                        <li class="feature-item">
+                            <div class="left-icon">
+                                <img src="static/recommendations/images/features-first-icon.png" alt="fourth muscle">
+                            </div>
+                            <div class="right-content">
+                                <h4>John Doe</h4>
+                                <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessitatibus repellendus sed deleniti id et!"</em></p>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <div class="left-icon">
+                                <img src="static/recommendations/images/features-first-icon.png" alt="training fifth">
+                            </div>
+                            <div class="right-content">
+                                <h4>John Doe</h4>
+                                <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessitatibus repellendus sed deleniti id et!"</em></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="main-button text-center">
+                <a href="{% url 'testimonials' %}">Read More</a>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Testimonials Item End ***** -->
+    
+    <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>
+                        Copyright © 2020 Company Name
+                        - Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'recommendations/js/jquery-2.1.0.min.js' %}"></script>
+    <script src="{% static 'recommendations/js/popper.js' %}"></script>
+    <script src="{% static 'recommendations/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'recommendations/js/scrollreveal.min.js' %}"></script>
+    <script src="{% static 'recommendations/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'recommendations/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'recommendations/js/imgfix.min.js' %}"></script>
+    <script src="{% static 'recommendations/js/mixitup.js' %}"></script>
+    <script src="{% static 'recommendations/js/accordions.js' %}"></script>
+    <script src="{% static 'recommendations/js/custom.js' %}"></script>
+
+  </body>
+</html>
